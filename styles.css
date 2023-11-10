@@ -1,0 +1,304 @@
+@font-face {
+    font-family: leaque;
+    src: url("fonts/LeagueSpartan-Regular.ttf");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: leaque;
+    src: url("fonts/LeagueSpartan-SemiBold.ttf");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: leaque;
+    src: url("fonts/LeagueSpartan-Bold.ttf");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: leaque;
+    src: url("fonts/LeagueSpartan-ExtraBold.ttf");
+    font-weight: 800;
+    font-style: normal;
+}
+
+.default {
+    --body-bg: hsl(221, 14%, 31%);
+    --keypad-toggle-bg: hsl(223, 31%, 20%);
+    --screen-bg: hsl(224, 36%, 15%);
+
+    --reset-del-bg: hsl(225, 21%, 49%);
+    --reset-del-hover: hsl(224, 51%, 76%);
+    --reset-del-shadow: hsl(224, 28%, 35%);
+
+    --equal-bg: hsl(6, 63%, 50%);
+    --equal-hover: hsl(6, 93%, 67%);
+    --equal-shadow-: hsl(6, 70%, 34%);
+    --equal-text: hsl(0, 0%, 100%);
+
+    --key-bg: hsl(31, 24%, 89%);
+    --key-hover: hsl(0, 100%, 99%);
+    --key-shadow: hsl(27,15%, 65%);
+
+    --key-text: hsl(221, 14%, 31%);
+    --general-clr: hsl(0, 0%, 99%);
+}
+
+.light {
+    --body-bg: hsl(285, 0%, 90%);
+    --keypad-toggle-bg: hsl(0, 0%, 59%);
+    --screen-bg: hsl(0, 20%, 99%);
+
+    --reset-del-bg: hsl(184, 42%, 37%);
+    --reset-del-hover: hsl(184, 40%, 56%);
+    --reset-del-shadow: hsl(185, 59%, 25%);
+
+
+    --equal-bg: hsl(25, 98%, 40%);
+    --equal-hover: hsl(25, 100%, 61%);
+    --equal-shadow-: hsl(25, 99%, 27%);
+    --equal-text: hsl(0, 0%, 100%);
+
+    --key-bg: hsl(45, 7%, 89%);
+    --key-hover: hsl(0, 0%, 100%);
+    --key-shadow: hsl(34,11%, 61%);
+
+    --key-text: hsl(60, 10%, 19%);
+    --general-clr: hsl(60, 10%, 19%);
+}
+
+.dark-purple {
+    --body-bg: hsl(267, 74%, 9%);
+    --keypad-toggle-bg: hsl(268, 71%, 12%);
+    --screen-bg: hsl(268, 71%, 12%);
+
+    --reset-del-bg: hsl(280, 90%, 26%);
+    --reset-del-shadow: hsl(285, 91%, 52%);
+    --reset-del-hover: hsl(280, 56%, 44%);
+
+
+    --equal-bg: hsl(176, 100%, 44%);
+    --equal-shadow-: hsl(176, 93%, 70%);
+    --equal-hover: hsl(176, 100%, 79%);
+    --equal-text: hsl(198, 20%, 13%);
+
+    --key-bg: hsl(268, 47%, 21%);
+    --key-hover: hsl(268, 54%, 44%);
+    --key-shadow: hsl(290, 70%, 36%);
+
+    --key-text: hsl(52, 100%, 62%);
+    --general-clr: hsl(52, 100%, 62%);
+}
+
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: .1rem;
+}
+
+
+body {
+    font-family: leaque, sans-serif;
+    background-color: var(--body-bg);
+    margin-inside:  auto;
+    height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+main {
+    display: grid;
+    grid-template-rows: min(6% , 44px) min(4% , 32px) min(90% , 632px);
+    grid-template-areas:
+            'calculator-header'
+            '.'
+            'calculator';
+}
+
+.calculator {
+    width: min(91%, 540px);
+    height: min(91%, 706px);
+    border-radius: 15px;
+}
+
+.calculator-header {
+    grid-area: calculator-header;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.title {
+    padding-left: 11px;
+    font-size: 32px;
+    letter-spacing: -0.53px;
+    color: var(--general-clr);
+}
+.theme-switch{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+}
+
+.theme-switch > p{
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--general-clr);
+}
+.theme-picker {
+    margin-left: 2rem;
+}
+
+.theme-picker::after {
+    content: "1\00a0\00a0\00a0\00a0 2\00a0\00a0\00a0\00a0 3";
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    font-weight: 800;
+    font-size: 12px;
+    color: var(--general-clr);
+}
+
+.calculator-body {
+    display: grid;
+    grid-template-rows: min(20% , 128px) min(5% , 24px)  min(75% , 480px);
+    grid-template-areas:
+            'screen'
+            '.'
+            'keypad'
+    ;
+}
+
+.screen {
+    grid-area: screen;
+    background-color: var(--screen-bg);
+    border-radius: 10px;
+}
+
+.screen > p {
+    margin: 0;
+    text-align: right;
+    font-size: 56px;
+    font-weight: 700;
+    padding-top: 40px;
+    padding-right: 32px;
+    letter-spacing: -0.933px;
+    color: var(--general-clr);
+}
+
+.keypad {
+    grid-area: keypad;
+    background-color: var(--keypad-toggle-bg);
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.key {
+    width: min(74%, 101px);
+    height: 64px;
+    background-color: var(--key-bg);
+    align-self: center;
+    justify-self: center;
+    border-radius: 10px;
+    box-shadow: 0 -4px 0 0 var(--key-shadow) inset;
+    flex-shrink: 0;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: -0.667px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--key-text);
+    transition: background-color .4s;
+}
+
+.key:hover {
+    background-color: var(--key-hover);
+}
+
+#key-del {
+    font-size: 28px;
+}
+
+#key-reset {
+    grid-column: 1 / span 2;
+}
+
+#key-del, #key-reset{
+    text-transform: uppercase;
+    background-color: var(--reset-del-bg);
+    box-shadow: 0 -4px 0 0 var(--reset-del-shadow) inset;
+    color: hsl(0, 20%, 99%);
+}
+
+#key-reset:hover, #key-del:hover{
+    background-color: var(--reset-del-hover);
+}
+
+#key-reset , #key-equal {
+    width: min(90%, 227px);
+    font-size: 28px;
+}
+
+#key-equal {
+    grid-column: 3 / span 2;
+    color: var(--equal-text);
+    background-color: var(--equal-bg);
+    box-shadow: 0 -4px 0 0 var(--equal-shadow-) inset;
+}
+
+#key-equal:hover {
+    background-color: var(--equal-hover);
+}
+
+/* --- THEME PICKER --- */
+
+input[type="range"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 71px;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: var(--keypad-toggle-bg);
+}
+
+input[type="range"]:focus {
+    border: none;
+    outline: none;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+    background: var(--keypad-toggle-bg);
+    border-radius: 15px;
+    height: 26px;
+    padding-left: 6px;
+    padding-right: 6px;
+
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: var(--equal-bg);
+    margin-top: 5px;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    outline: 2px solid var(--keypad-toggle-bg);
+}
+

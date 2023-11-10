@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="stylesheet" href="styles.css">
+    <title>Frontend Mentor | Calculator app</title>
+</head>
+<body>
+<header>
+
+</header>
+    <main class="calculator">
+        <div class="calculator-header">
+            <h1 class="title">calc</h1>
+            <div class="theme-switch">
+                <p>theme</p>
+                <input type="range" min="1" max="3" step="1" value="1" id="theme-switcher" class="theme-picker">
+            </div>
+        </div>
+        <div class="space"></div>
+        <div class="calculator-body">
+            <div class="screen"><p id="equitation">399,981</p></div>
+            <div class="space"></div>
+            <div class="keypad">
+                <div class="key" id="key-7" data-value="7">7</div>
+                <div class="key" id="key-8" data-value="8">8</div>
+                <div class="key" id="key-9" data-value="9">9</div>
+                <div class="key" id="key-del" data-value="delete">del</div>
+                <div class="key" id="key-4" data-value="4">4</div>
+                <div class="key" id="key-5" data-value="5">5</div>
+                <div class="key" id="key-6" data-value="6">6</div>
+                <div class="key" id="key-add" data-value="+">+</div>
+                <div class="key" id="key-1" data-value="1">1</div>
+                <div class="key" id="key-2" data-value="2">2</div>
+                <div class="key" id="key-3" data-value="3">3</div>
+                <div class="key" id="key-subtract" data-value="-">-</div>
+                <div class="key" id="key-dot" data-value=".">.</div>
+                <div class="key" id="key-0" data-value="0">0</div>
+                <div class="key" id="key-divide" data-value="/">/</div>
+                <div class="key" id="key-multiply" data-value="x">x</div>
+                <div class="key" id="key-reset" data-value="reset">reset</div>
+                <div class="key" id="key-equal" data-value="=">=</div>
+            </div>
+        </div>
+    </main>
+<script src="main.js"></script>
+</body>
+</html>
